@@ -1,5 +1,6 @@
 {
 	"plugins":[
-		"splitter"
+		"splitter",
+		"expandable-chapters"
 	]
 }
