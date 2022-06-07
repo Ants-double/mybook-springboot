@@ -3,6 +3,7 @@
 
 ## 1.处理器映射器
 ### 1.1 作用
+
 通过处理器映射器，根据请求的URL、method 等信息可以将Web请求映射到正确的处理器Controller（handler)上。当接收到请求时，DispatcherServlet将请求交给HandlerMapping处理器映射，让它检查请求并找到一个合适的HandlerExecutionChain,这个HandlerExecutionChain包含一个能处理该请求的处理器Controller。 然后DispatcherServlet执行在HandlerExecutionChain中处理器Conntroller.
 ---------
 Spring 内置了许多处理器映射器策略，目前最主要由三个实现。SimpleUrlHandlerMapping,BeanNameHandlerMapping,RequestMappingHandlerMapping.
