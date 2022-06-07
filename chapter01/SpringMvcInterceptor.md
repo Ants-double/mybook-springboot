@@ -1,0 +1,12 @@
+# Springmvc 拦截器
+
+
+拦截器是SpringMVC中的一个核心应用组件，主要用于处理多个Controller的共性问题，当我们的请求由DispatcherServlet派发到具体的Controller之前首先要执行拦截器的一些相关的方法，在这些方法中可以对请求进行相应的预处理（如 权限检测，参数验证），这些方法可以决定是对这个请求是拦截还是放行
+服务器一启动就会创建拦截器对象
+对拦截器配置延迟加载没有用
+拦截器是单例的，整个过程拦截器只有一个实例对象
+拦截器要实现HandlerInterceptor接口或者继承HandlerInterceptorAdaptor抽象类；
+HandlerInterceptor有三个方法
+preHandle() 是拦截器最先执行的方法，是在请求到达Controller之前执行的，其实就是拦截器用于拦截请求的，三个参数分别是request ,response,handler就是这个请求要去找后端的处理器Controller。方法的返回值是bloolean类型，如果返回false就说明请求在此处终结，不能执行后面的代码了。如果返回true，那么这个拦截器就要放行，将请求交给后端的Controller.
+postHandl()这个方法是在后端控制器Controller处理完请求后，就执行的这个方法，多了一个参数ModelAndView 后端控制器Controller处理请求可能需要返回页面和数据，所以会多一个ModelAndView,但是这个方法在渲染之前执行的，渲染页面是交给前端控制器来完成的。
+afterCompletion()拦截器最后执行的方法
