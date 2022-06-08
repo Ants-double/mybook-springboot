@@ -13,3 +13,13 @@ BeanFactory是这个容器最基本的功能描述，在此基础上，Spring通
 ## Spring IOC的设计  
 主要是为了把原来对象-对象的关系，解耦为 对象-IOC容器-对象的关系，体现出IOC容器对应用的平台作用。
 Spring Ioc容器设计中，主要是两个，一个是BeanFactory接口的简单容器系列，这个系列实现了基本的功能，另一个是ApplicationContext应用上下文，它作为高级容器，基本上满足了对容器的大部分要求了。  
+![IOC](../images/WebApplicationContext.png)  
+带方法
+![IOCWithMethod](../images/WebApplicationContextWithMethod.png)  
+### 区分FactoryBean和BeanFactory
+BeanFactory是IOC容器是一个对象工厂，管理所有Bean的  
+FactoryBean 是一个能产生或者修饰对象的工厂Bean,它的实现与设计模式工厂模式和修饰器模块类似。也就是对象工厂  
+
+
+
+
