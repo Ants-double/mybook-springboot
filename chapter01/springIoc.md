@@ -10,4 +10,6 @@ Spring IOC是控制反转模式的一种实现。Spring IOC提供了一个基本
 并通过依赖注入和AOP切面增强为JavaBean这样的POJO对象赋予事务管理，生命周期管理等基本功能。具体的实现中有接口注入、setter注入、构造器注入是主要的注入方式。使用Spring时setter注入是常见的注入方式，而且为了防止注入异常，Spring Ioc容器还提供了对特定依赖的检查。Spring 设计IOC容器的实现，也适用了很多应用场景，比如：带有不同容器特性，读取不同配置信息的，从不同I/O源读取配置信息的，面向注解的。可以更好的满足对IOC容器的各种使用需求。  
 我们经常接触到的BeanFactory和ApplicationContext都可以看成是容器的具体表现形式，如果深入去看，实际上代表着一系列功能各异的容器产品，只是容器功能有大有小，有各自的特点。Spring提供各种各样的选择，供开发人员根据需要选择。  
 BeanFactory是这个容器最基本的功能描述，在此基础上，Spring通过定义BeanDefinition来管理基于Spring的应用中各种对象以及它们之间的依赖关系。BeanDefinition抽象了我们对于对象的定义，BeanDefinition就是对依赖反转模式中管理对象依赖关系的抽象，也是容器实现依赖反转功能的核心数据结构，依赖反转都是围绕BeanDefinition来实现的。  
-## Spring IOC的设计
+## Spring IOC的设计  
+主要是为了把原来对象-对象的关系，解耦为 对象-IOC容器-对象的关系，体现出IOC容器对应用的平台作用。
+Spring Ioc容器设计中，主要是两个，一个是BeanFactory接口的简单容器系列，这个系列实现了基本的功能，另一个是ApplicationContext应用上下文，它作为高级容器，基本上满足了对容器的大部分要求了。  
