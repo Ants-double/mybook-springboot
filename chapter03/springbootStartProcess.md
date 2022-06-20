@@ -34,11 +34,12 @@
 4. 创建初始化ConfigurableEnvironment,封装main方法的参数，初始化参数，写入到Environment中，发布ApplicaionEnivronmentPrepapreEvent事件，参数绑定后返回Environment。  
 5. 打印banner和版本。  
 6. 构造Spring容器，ApplicationContext上下文，先填充Environment环境和设置参数，如果application有设置beanNameGenerator（bean),resourceLoader就注入到上下文中，调用初始化的切面，发布ApplicationContextInitializedEvent事件。  
-7. SpringApplicationRunListeners发布finish事件。  
-8. 停止计时，日志打印总共启动的时间  
-9. 发布Springboot程序启动事件ApplicationStrarted  
-10. 调用ApplicationRunner和CommandLineRunner接口。  
-11. 最后发布ApplicationReadEvent事件，标志着Springboot启动完成，可以处理接收请求。   
+7. 刷新容器，分为准备（beanDefinition)，刷新(初始化bean)，刷新之后 （子类实现）  
+8. SpringApplicationRunListeners发布finish事件。  
+9. 停止计时，日志打印总共启动的时间  
+10. 发布Springboot程序启动事件ApplicationStrarted  
+11. 调用ApplicationRunner和CommandLineRunner接口。  
+12. 最后发布ApplicationReadEvent事件，标志着Springboot启动完成，可以处理接收请求。   
 -- 添加了创建BootStrapContext
 ``` java
 public ConfigurableApplicationContext run(String... args) {
