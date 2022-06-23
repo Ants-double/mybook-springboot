@@ -31,8 +31,10 @@ ublic class MapperScannerConfigurer
         StringUtils.tokenizeToStringArray(this.basePackage, ConfigurableApplicationContext.CONFIG_LOCATION_DELIMITERS));
   }
     }
-```  
-2. 在scan方法中 调用doScan方法，并在doScan访求中调用processBeanDefinitions实现修改beanDefinitions对象。
+```   
+  
+2. 在scan方法中 调用doScan方法，并在doScan访求中调用processBeanDefinitions实现修改beanDefinitions对象。  
+
 ``` java
 @Override
   public Set<BeanDefinitionHolder> doScan(String... basePackages) {
@@ -100,8 +102,10 @@ ublic class MapperScannerConfigurer
       definition.setLazyInit(lazyInitialization);
     }
   }  
-```  
-3. 然后进行初始化Bean流程中，判断bean类型为Factory类型就会调用getObject方法
+```    
+
+3. 然后进行初始化Bean流程中，判断bean类型为Factory类型就会调用getObject方法  
+
 ``` java
 	singletonObject = singletonFactory.getObject();
 					newSingleton = true;
@@ -125,8 +129,10 @@ ublic class MapperScannerConfigurer
 
     this.sqlSessionFactory = buildSqlSessionFactory();
   }
-```   
-然后经过一系列流程会进入到 buildSqlSessionFactory();来创建一个SqlSessionFactory实例，并在创建实例的过程中解析xml文件
+```     
+
+然后经过一系列流程会进入到 buildSqlSessionFactory();来创建一个SqlSessionFactory实例，并在创建实例的过程中解析xml文件  
+
 ``` java
  protected SqlSessionFactory buildSqlSessionFactory() throws Exception {
 
@@ -249,8 +255,10 @@ ublic class MapperScannerConfigurer
 
     return this.sqlSessionFactoryBuilder.build(targetConfiguration);
   }  
-```  
-在parse方法中进行绑定  
+```    
+
+在parse方法中进行绑定   
+
 ``` java
 public void parse() {
     if (!configuration.isResourceLoaded(resource)) {
@@ -313,10 +321,13 @@ public <T> void addMapper(Class<T> type) {
       }
     }
   }
-```  
-至此构造sqlSessionFactory完毕。
+```    
+
+至此构造sqlSessionFactory完毕。  
+
 4. 从bean工厂获取Bean 因为SqlSessionDaoSupport继承于InitializingBean 所以会引发afterPropertiesSet()方法。之后调用
-factory.getObject();方法获取bean. 本质上传入sqlSession从knownMappers获取的代理方法。至此bean也创建完成。
+factory.getObject();方法获取bean. 本质上传入sqlSession从knownMappers获取的代理方法。至此bean也创建完成。  
+
 ``` java 
  @Override
   public T getObject() throws Exception {
