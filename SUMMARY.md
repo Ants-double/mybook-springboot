@@ -19,4 +19,8 @@
 ### 第三部分 Springboot
 * [第三章：Springboot](chapter03/readme.md)  
      *  [第一节：Springboot 启动流程](chapter03/springbootStartProcess.md)
-     *  [第二节：Springboot 事件监听](chapter03/springbootListener.md)
+     *  [第二节：Springboot 事件监听](chapter03/springbootListener.md)  
+ 
+### 第四部分 mybatis
+* [第四章：mybatis](chapter04/readme.md)  
+     * [第一节：mybatis-spring启动流程](chapter04/mybatisSpringStartProcess.md)  
